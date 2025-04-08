@@ -4,13 +4,13 @@ import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import { useRef } from "react";
 import HeroAnimation from '@/Assets/hero.json';
 import CubeAnimation from '@/Assets/cube.json';
-import CircleAnimation from '@/Assets/store-1.json';
+
 
 export default function Hero() {
 
     const currentAnimation = useRef<LottieRefCurrentProps>(null);
     const cubeAnimation = useRef<LottieRefCurrentProps>(null);
-    const circleAnimation = useRef<LottieRefCurrentProps>(null);
+   
     return (
         <section className={cn([
             'relative bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#D4AF37,#EAEEFE_80%)]',
@@ -35,7 +35,7 @@ export default function Hero() {
                             'bg-gradient-to-l from-[#D4AF37] to-[#000]  text-transparent bg-clip-text',
                         ])}>Amazingly Simple</h1>
 
-                        <p className="text-xl text-color-dark font-poppins tracking-tight mt-6">
+                        <p className="mt-6 text-xl tracking-tight text-color-dark font-poppins">
                             Launch Your Store Today, Scale Your Business Tomorrow with
                             Powerful AI features, Beautiful Templates, Seamless payments.
                             Everything you need to start selling online in one place.

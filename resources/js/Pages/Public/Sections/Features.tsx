@@ -101,6 +101,8 @@ export default function Features() {
     const [activeFeatureIndex, setActiveFeatureIndex] = useState<number | null>(null);
     const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [autoHighlightIndex, setAutoHighlightIndex] = useState(0);
+    const orbitContainerRef = useRef<HTMLDivElement>(null);
+    const [containerSize, setContainerSize] = useState(370);
 
     // Detect touch device on component mount
     useEffect(() => {
@@ -114,6 +116,33 @@ export default function Features() {
 
             return () => clearInterval(interval);
         }
+    }, []);
+
+    // Handle responsive sizing of orbit container
+    useEffect(() => {
+        const updateOrbitSize = () => {
+            if (orbitContainerRef.current) {
+                const parentWidth = orbitContainerRef.current.parentElement?.clientWidth || 0;
+                // For mobile (under 768px), we want to adjust the size based on available width
+                if (window.innerWidth < 768) {
+                    // Make sure it has margins on smaller screens
+                    const newSize = Math.min(parentWidth - 32, 370); // subtract 32px (16px each side)
+                    setContainerSize(newSize);
+                } else {
+                    // For desktop, use the original size
+                    setContainerSize(370);
+                }
+            }
+        };
+
+        // Initialize size
+        updateOrbitSize();
+
+        // Add resize listener
+        window.addEventListener('resize', updateOrbitSize);
+        
+        // Cleanup
+        return () => window.removeEventListener('resize', updateOrbitSize);
     }, []);
 
     // Handle mouse/touch interactions
@@ -133,15 +162,24 @@ export default function Features() {
         ? (activeFeatureIndex !== null ? activeFeatureIndex : autoHighlightIndex)
         : activeFeatureIndex;
 
+    // Calculate orbit sizes proportionally based on container size
+    const outerOrbitSize = containerSize;
+    const middleOrbitSize = containerSize * (280/370);
+    const innerOrbitSize = containerSize * (180/370);
+    const centerSize = containerSize * (80/370);
+    const logoSize = containerSize * (64/370);
+    const orbitRadius = containerSize / 2;
+
     return (
         <section className={cn([
             'py-10 md:py-12',
             'min-h-screen',
-            'bg-gradient-to-t from-[#FFFFFF] to-[#b0b9c626]'
+            'bg-gradient-to-b from-[#FFFFFF] to-[#b0b9c626]'
         ])}>
+            
             <SectionContent classes="relative flex flex-col md:flex-row justify-between items-center">
                 {/* Left side content */}
-                <div className="md:w-1/2">
+                <div className="relative w-full mb-12 md:w-1/2 md:mb-0 pricing-head_before">
                     <h2 className={cn([
                         'text-xl md:text-3xl font-semibold tracking-tighter',
                         'font-poppins',
@@ -185,20 +223,39 @@ export default function Features() {
                         buttonClassName='text-white bg-[#E5C04D]'
                         animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
                         isTransparent={true}
-                       
+                        fullWidthOnMobile={true}
                     />
                 </div>
 
                 {/* Right side - Orbits */}
-                <div className="flex justify-center mt-12 md:w-1/2 md:mt-0">
-                    <div className="relative size-[370px] flex items-center justify-center">
+                <div ref={orbitContainerRef} className="flex justify-center w-full md:w-1/2 md:pl-4">
+                    <div 
+                        className="relative flex items-center justify-center mx-auto" 
+                        style={{ 
+                            width: `${containerSize}px`, 
+                            height: `${containerSize}px`,
+                            maxWidth: '95%'
+                        }}
+                    >
                         {/* Static orbits */}
-                        <Orbit className="absolute size-[370px] border-2 border-gray-300 rounded-full" />
-                        <Orbit className="absolute size-[280px] border-2 border-gray-300 rounded-full" />
-                        <Orbit className="absolute size-[180px] border-2 border-gray-300 rounded-full" />
+                        <Orbit 
+                            className="absolute border-2 border-gray-300 rounded-full" 
+                            style={{ width: `${outerOrbitSize}px`, height: `${outerOrbitSize}px` }} 
+                        />
+                        <Orbit 
+                            className="absolute border-2 border-gray-300 rounded-full" 
+                            style={{ width: `${middleOrbitSize}px`, height: `${middleOrbitSize}px` }} 
+                        />
+                        <Orbit 
+                            className="absolute border-2 border-gray-300 rounded-full" 
+                            style={{ width: `${innerOrbitSize}px`, height: `${innerOrbitSize}px` }} 
+                        />
 
                         {/* Center logo with Lottie animation */}
-                        <div className="absolute flex items-center justify-center size-[80px] z-10">
+                        <div 
+                            className="absolute z-10 flex items-center justify-center" 
+                            style={{ width: `${centerSize}px`, height: `${centerSize}px` }}
+                        >
                             <Lottie
                                 onComplete={() => {
                                     phoneAnimationRef.current?.setDirection(-1);
@@ -213,7 +270,8 @@ export default function Features() {
 
                         {/* Rotating container for the logos */}
                         <motion.div
-                            className="absolute size-full"
+                            className="absolute"
+                            style={{ width: `${containerSize}px`, height: `${containerSize}px` }}
                             animate={{ rotate: 360 }}
                             transition={{
                                 duration: 40,
@@ -223,17 +281,19 @@ export default function Features() {
                         >
                             {/* Individual logos positioned on the outer orbit */}
                             {featureLogos.map((logo) => {
-                                // Calculate position on the outermost orbit
-                                const orbitRadius = 185; // Half of 370px
+                                const iconSize = containerSize * (40/370); // Proportional icon size
+                                const logoContainerSize = containerSize * (64/370); // Proportional logo container size
                                 const isHighlighted = highlightedFeatureIndex === logo.featureIndex;
 
                                 return (
                                     <div
                                         key={logo.id}
-                                        className="absolute size-16"
+                                        className="absolute"
                                         style={{
-                                            left: `calc(50% - 32px)`,
-                                            top: `calc(50% - 32px)`,
+                                            width: `${logoContainerSize}px`,
+                                            height: `${logoContainerSize}px`,
+                                            left: `calc(50% - ${logoContainerSize/2}px)`,
+                                            top: `calc(50% - ${logoContainerSize/2}px)`,
                                             transform: `rotate(${logo.rotate}deg) translateX(${orbitRadius}px) rotate(-${logo.rotate}deg)`,
                                             pointerEvents: 'all',
                                             zIndex: isHighlighted ? 5 : 1,
@@ -249,7 +309,11 @@ export default function Features() {
                                             <motion.img
                                                 src={logo.source as string}
                                                 alt={logo.alt}
-                                                className="object-contain cursor-pointer size-10"
+                                                style={{
+                                                    width: `${iconSize}px`,
+                                                    height: `${iconSize}px`
+                                                }}
+                                                className="object-contain cursor-pointer"
                                                 animate={{
                                                     rotate: isHighlighted ? [0, 10, -10, 0] : 0,
                                                     scale: isHighlighted ? 1.2 : 1

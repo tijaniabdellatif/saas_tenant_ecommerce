@@ -249,7 +249,7 @@ Light slate for hover states: #94A3B8 */
   }
 
   .pricing-head_btn {
-    @apply relative flex-1 h-16 uppercase transition-colors duration-500 base-bold z-2 text-p5 hover:text-p4;
+    @apply relative flex-1 h-16 uppercase transition-colors duration-500 base-bold z-2 text-color-dark hover:text-[#D4AF37];
   }
 
   .pricing-head_btn_before {

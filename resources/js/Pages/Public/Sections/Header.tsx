@@ -27,7 +27,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className='fixed top-0 w-full z-50'>
+        <header className='fixed top-0 z-50 w-full'>
             <Banner text='Get Started for Free' additionalText='Launch Your Store Today' />
             <div className={`relative mt-10 py-4 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]' : ''}`}>
                 <div className='px-4 mx-auto max-w-7xl md:px-6 lg:px-8'>
@@ -58,32 +58,28 @@ export default function Header() {
 
                         {/* Desktop navigation */}
                         <nav className='items-center hidden md:flex'>
-                            <div className='font-poppins flex items-center space-x-3 lg:space-x-6'>
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-p2 transition-colors'>
-                                    About
-                                </Link>
-
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
+                            <div className='flex items-center space-x-3 font-poppins lg:space-x-6'>
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
                                     Features
                                 </Link>
 
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
                                     Pricing
                                 </Link>
 
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
-                                    Updates
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
+                                    Integrations
                                 </Link>
 
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
                                     Help
                                 </Link>
 
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
                                     Blog
                                 </Link>
                                 
-                                <Link href='' className='text-sm lg:text-base text-color-dark whitespace-nowrap hover:text-black transition-colors'>
+                                <Link href='' className='text-sm transition-colors lg:text-base text-color-dark whitespace-nowrap hover:text-black'>
                                     Contact Us
                                 </Link>
 

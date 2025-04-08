@@ -6,6 +6,8 @@ import Hero from './Sections/Hero';
 import FeatureTicker from './Sections/FeatureTicker';
 import Features from './Sections/Features';
 import ProductShowCase from './Sections/ProductShowCase';
+import Pricing from './Sections/Pricing';
+import Integration from './Sections/Integration';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<{ laravelVersion: string, phpVersion: string }>) {
     return (
@@ -18,6 +20,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<
                 <FeatureTicker />
                 <Features />
                 <ProductShowCase />
+                <Pricing />
+                <Integration />
             </PublicLayout>
 
         </>
