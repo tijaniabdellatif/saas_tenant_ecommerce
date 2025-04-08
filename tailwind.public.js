@@ -23,6 +23,8 @@ export default {
                 s3: "#8B4513",
                 s4: "#C9B037",
                 s5: "#F5F5F5",
+                s6:"#475569",
+                
                 black: {
                     DEFAULT: "#000000",
                     100: "#05091D",
@@ -34,6 +36,20 @@ export default {
                 300: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD",
                 400: "inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05)",
                 500: "0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(40, 51, 111, 0.7)",
+            },
+            keyframes: {
+                "arrow-pulse": {
+                    "0%, 100%": { transform: "translateX(0)" },
+                    "50%": { transform: "translateX(4px)" },
+                },
+                "border-rotate": {
+                    "0%": { transform: "rotate(0deg)" },
+                    "100%": { transform: "rotate(360deg)" },
+                },
+            },
+            animation: {
+                "arrow-pulse": "arrow-pulse 1.5s ease-in-out infinite",
+                "border-rotate": "border-rotate 4s linear infinite",
             },
             fontFamily: {
                 inter: ["Inter", "sans-serif"],

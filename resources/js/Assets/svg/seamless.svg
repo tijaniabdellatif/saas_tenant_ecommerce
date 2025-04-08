@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="45" fill="#8B5CF6" />
+  
+  <!-- Puzzle pieces fitting together -->
+  <path d="M30,30 L50,30 L50,45 C50,48 54,48 54,45 L54,30 L70,30 L70,50 L55,50 C52,50 52,54 55,54 L70,54 L70,70 L50,70 L50,55 C50,52 46,52 46,55 L46,70 L30,70 L30,50 L45,50 C48,50 48,46 45,46 L30,46 Z" fill="white" />
+  
+  <!-- Checkmark -->
+  <path d="M45,50 L52,57 L65,44" fill="none" stroke="#4ADE80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Installation progress dots -->
+  <circle cx="35" cy="80" r="2" fill="white" />
+  <circle cx="45" cy="80" r="2" fill="white" />
+  <circle cx="55" cy="80" r="2" fill="white" />
+  <circle cx="65" cy="80" r="2" fill="#F9FAFB" opacity="0.5" />
+</svg>

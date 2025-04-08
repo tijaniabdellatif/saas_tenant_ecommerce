@@ -4,9 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Dark slate for text/borders: #475569
+Medium slate for dividers: #64748B
+Light slate for hover states: #94A3B8 */
+
 @layer base {
   html {
-    @apply bg-html;
+     @apply bg-html;
+     font-family: "Inter", sans-serif;
+
   }
 
 
@@ -33,8 +40,16 @@
 
 @layer utilities {
 
+  .group:hover .group-hover\:w-full {
+    width: 100%;
+  }
+  
+  .group:hover .group-hover\:text-white {
+    color: white;
+  }
+
   .bg-html {
-     background-color: #EAEEFE;
+     background-color: white;
    }
   /* START of Typography */
   .h-num {
@@ -338,4 +353,63 @@
   }
 
   /*  END of Footer*/
+}
+
+@layer components {
+
+  .animate-border-flow {
+    position: relative;
+    z-index: 0;
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .animate-border-flow::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    padding: 2px; /* Border width */
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      #D4AF37 0%,
+      #000000 50%,
+      #D4AF37 100%
+    );
+    background-size: 200% auto;
+    background-position: 0% center;
+    animation: gradient-flow 3s linear infinite;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  @keyframes gradient-flow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .logo-ticker {
+    @apply w-auto h-8 ;
+  }
+
+  .tag {
+    @apply tracking-tight inline-flex text-sm border border-[#475569]/10 px-3 py-1 rounded-lg;
+  }
+
+  .text-color-dark {
+    @apply text-[#475569];
+  }
 }

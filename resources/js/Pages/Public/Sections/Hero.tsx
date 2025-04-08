@@ -1,127 +1,96 @@
 import { cn } from "@/libs/utils";
-import { Element, Link as LinkScroll } from "react-scroll";
-import LandingButton from "../Components/LandingButton";
-import { Zap } from "@/Assets";
-import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import animationData from '@/Assets/Animation - 1743586471539.json';
-import { useRef, useEffect, useState } from "react";
+import LandingButton from "../Components/Utilities/LandingButton";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import { useRef } from "react";
+import HeroAnimation from '@/Assets/hero.json';
+import CubeAnimation from '@/Assets/cube.json';
+import CircleAnimation from '@/Assets/store-1.json';
 
 export default function Hero() {
-    const phoneAnimationRef = useRef<LottieRefCurrentProps>(null);
-    const [viewportWidth, setViewportWidth] = useState(0);
-    
-    // Effect to track viewport width changes
-    useEffect(() => {
-        // Set initial width
-        setViewportWidth(window.innerWidth);
-        
-        // Handle resize
-        const handleResize = () => {
-            setViewportWidth(window.innerWidth);
-        };
-        
-        // Add event listener
-        window.addEventListener('resize', handleResize);
-        
-        // Clean up
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-    
+
+    const currentAnimation = useRef<LottieRefCurrentProps>(null);
+    const cubeAnimation = useRef<LottieRefCurrentProps>(null);
+    const circleAnimation = useRef<LottieRefCurrentProps>(null);
     return (
         <section className={cn([
-            'relative',
-            'pt-60 pb-40',
-            'max-lg:pt-52 max-lg:pb-36',
-            "max-md:pt-36 max-md:pb-32"
+            'relative bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#D4AF37,#EAEEFE_80%)]',
+            "md:pt-5 md:pb-10 pt-8 pb-20 overflow-x-clip"
         ])}>
-            <Element name="hero" className="relative">
-                {/* Section-wide blur backdrop - full width but only section height */}
+            <div className='container'>
                 <div className={cn([
-                    "absolute",
-                    "left-0 right-0",
-                    "w-full",
-                    "hidden max-md:block",
-                    "bg-white/15 backdrop-blur-md", // Reduced opacity and blur for more glassy effect
-                    "z-5",
-                    "pointer-events-none"
-                ])} 
-                style={{
-                    // Dynamically position to cover just the hero section
-                    top: "0",
-                    height: "100%"
-                }}
-                />
-                
-                <div className="container relative overflow-hidden">
-                    {/* Animation backdrop */}
+                    'md:flex justify-center items-center'
+                ])}>
                     <div className={cn([
-                        "absolute inset-0",
-                        "w-full h-full",
-                        "overflow-hidden pointer-events-none",
-                        "-z-10", // Using negative z-index to force it behind everything
-                        "opacity-100 max-md:opacity-100"
+                        'md:w-[60%]',
+                        'mt-[8rem] lg:mt-[2rem] md:mt-[5rem]',
+
                     ])}>
-                        <div className="flex items-center justify-center w-full h-full">
-                            <Lottie
-                                onComplete={() => {
-                                    phoneAnimationRef.current?.setDirection(-1)
-                                    phoneAnimationRef.current?.play()
-                                }}
-                                lottieRef={phoneAnimationRef}
-                                animationData={animationData}
-                                style={{ 
-                                    width: viewportWidth < 768 ? '150%' : '50%',
-                                    height: 'auto',
-                                    position: 'absolute',
-                                    left: viewportWidth < 768 ? '-25%' : 'auto',
-                                    right: viewportWidth < 768 ? 'auto' : '0',
-                                    top: '0',
-                                    bottom: '0',
-                                    margin: 'auto'
-                                }}
-                            />
-                        </div>
-                    </div>
-                    
-                    {/* Content container */}
-                    <div className={cn([
-                        'relative',
-                        "max-w-512 max-lg:max-w-388",
-                        "max-md:max-w-full max-md:w-full", // Full width on mobile
-                        "bg-transparent pt-14", // Top padding for header space
-                        "max-md:p-6", // Padding without blur
-                        "z-20" // Higher z-index to ensure it's above animation
-                    ])}>
-                        <div className={cn([
-                            'caption small-3 uppercase text-p3'
-                        ])}>
-                            Enimsay Store
+                        <div className="tag text-color-dark">
+                            Version 2.0 is here
                         </div>
                         <h1 className={cn([
-                            'mb-6 h1 uppercase',
-                            'max-lg:mb-7 max-lg:h2 max-md:mb-4 max-md:text-5xl',
-                            'max-md:leading-12'
-                        ])}>
-                            Amazingly Simple
-                        </h1>
-                        <p className={cn([
-                            'leading-7 text-white',
-                            'max-w-440 mb-14 body-1 max-md:mb-10',
-                            'max-md:max-w-full', // Full width paragraph on mobile
-                        ])}>
+                            'text-5xl  md:text-7xl font-bold tracking-tighter',
+                            'font-poppins',
+                            "py-2 mt-6",
+                            'bg-gradient-to-l from-[#D4AF37] to-[#000]  text-transparent bg-clip-text',
+                        ])}>Amazingly Simple</h1>
+
+                        <p className="text-xl text-color-dark font-poppins tracking-tight mt-6">
                             Launch Your Store Today, Scale Your Business Tomorrow with
-                            <span className="italic text-[#FFD275] font-semibold"> Powerful AI tools</span>. <span className="italic text-[#FFD275] font-semibold">Beautiful templates</span>. <span className="italic text-[#FFD275] font-semibold">Seamless payments</span>. Everything you need to succeed in one platform
+                            Powerful AI features, Beautiful Templates, Seamless payments.
+                            Everything you need to start selling online in one place.
                         </p>
-                        <LinkScroll to="features" offset={-100} spy smooth>
-                            <LandingButton icon={Zap} markerFill="#ffd275">
-                                Try it now
-                            </LandingButton>
-                        </LinkScroll>
+
+
+                        <div className="flex gap-1 items-center mt-[30px]">
+                            <LandingButton
+                                text='Get Started'
+                                buttonClassName='text-[#000] bg-[#D4AF37]'
+                                animationClassName='bg-gradient-to-r from-[#E5C04D] to-slate-600'
+                                styleBorderAnimationClassname="linear-gradient(90deg, #D4AF37, white, #D4AF37)"
+                                
+                            />
+
+                            <LandingButton
+                                text='Learn More'
+                                buttonClassName='text-[#D4AF37] bg-[#222222]'
+                                animationClassName='bg-gradient-to-l from-white to-black'
+                                isTransparent={true}
+                                styleBorderAnimationClassname="linear-gradient(90deg, #000, white, #000)"
+                            />
+                        </div>
+
                     </div>
+
+                    <div className="relative  mt-10 flex justify-center md:left-10 items-center md:mt-0 md:h-[648px] md:flex-1">
+                        <Lottie
+                            animationData={HeroAnimation}
+                            lottieRef={currentAnimation}
+                            loop={true}
+                            className="object-contain lg:w-[500px] md:absolute md:h-full md:w-[400px] md:mt-20 md:max-w-none"
+                        />
+
+                        <Lottie
+                            animationData={CubeAnimation}
+                            lottieRef={cubeAnimation}
+                            loop={true}
+                            className="hidden w-[200px] object-contain md:absolute md:block top-[100px] -left-12 "
+                        />
+
+                        <Lottie
+                            animationData={CubeAnimation}
+                            lottieRef={cubeAnimation}
+                            loop={true}
+                            className="hidden w-[200px] object-contain md:absolute md:block top-[100px] -left-12 "
+                        />
+
+
+                    </div>
+
                 </div>
-            </Element>
+
+            </div>
         </section>
     );
+
 }
