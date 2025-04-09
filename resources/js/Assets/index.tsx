@@ -13,6 +13,14 @@ import ProductDescription from '@/Assets/svg/generative.svg';
 import ChatBot from '@/Assets/svg/chatbot.svg';
 import Recommandation from '@/Assets/svg/recommandation.svg';
 import Templating from '@/Assets/svg/template.svg';
+import GoogleWorkspace from '@/Assets/Images/google-workspace.png';
+import MailChimp from '@/Assets/Images/mailchimp.svg';
+import Meta from '@/Assets/Images/Meta-Logo.png';
+import GoogleAnalytics from '@/Assets/Images/Logo_Google_Analytics.svg.png';
+import StripePaypal from '@/Assets/Images/stripe.png';
+import FreshDesk from '@/Assets/Images/freshdesk.svg';
+import Canva from '@/Assets/Images/Canva_Logo.svg.png';
+import JudgeMe from '@/Assets/Images/61b809188fc672eb132a70e9_logo - green.png'
 
 export {
 
@@ -23,6 +31,7 @@ export {
     ScikitLearn,
     SlackLogo,
     AnthropicLogo,
+    GoogleWorkspace,MailChimp,Meta,GoogleAnalytics,StripePaypal,FreshDesk,Canva,JudgeMe,
     SEO, Seamless, Analytics, ImageGeneration, ProductDescription, ChatBot, Recommandation, Templating
 
 }

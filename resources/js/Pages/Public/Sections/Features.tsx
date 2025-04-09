@@ -1,15 +1,5 @@
 import { cn } from "@/libs/utils";
 import { useRef, useState, useEffect } from "react";
-import {
-    SEO,
-    Seamless,
-    Analytics,
-    ImageGeneration,
-    ProductDescription,
-    ChatBot,
-    Recommandation,
-    Templating
-} from '@/Assets';
 import SectionContent from "../Components/Utilities/SectionContent";
 import LandingButton from "../Components/Utilities/LandingButton";
 import Orbit from "../Components/Utilities/Orbit";
@@ -18,83 +8,9 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import AnimationData from '@/Assets/Lottie_Lego.json';
 import { motion } from 'framer-motion';
+import { sectionFeaturs,featureLogos } from "@/libs/constants";
 
-interface IFeatureLogos {
-    id: number,
-    alt: string,
-    source: string | React.ReactElement,
-    rotate: number,
-    featureIndex: number // Maps to the index in the features list
-}
 
-const sectionFeaturs = [
-    'AI SEO Automation',
-    'Effortless Installation',
-    'Intelligent Analytics',
-    'Robust Image & Description Generation',
-    'AI Chatbot',
-    'Robust Product Recommendations',
-    'Beautiful Templates'
-];
-
-const featureLogos: IFeatureLogos[] = [
-    {
-        id: 1,
-        alt: "SEO automation",
-        source: SEO,
-        rotate: 0,
-        featureIndex: 0
-    },
-    {
-        id: 2,
-        alt: "Seamless Installation",
-        source: Seamless,
-        rotate: 45,
-        featureIndex: 1
-    },
-    {
-        id: 3,
-        alt: "Analytics",
-        source: Analytics,
-        rotate: 90,
-        featureIndex: 2
-    },
-    {
-        id: 4,
-        alt: "Image Generation",
-        source: ImageGeneration,
-        rotate: 135,
-        featureIndex: 3
-    },
-    {
-        id: 5,
-        alt: "Product Description",
-        source: ProductDescription,
-        rotate: 180,
-        featureIndex: 3
-    },
-    {
-        id: 6,
-        alt: "ChatBot Assistant",
-        source: ChatBot,
-        rotate: 225,
-        featureIndex: 4
-    },
-    {
-        id: 7,
-        alt: "Robust Recommandation",
-        source: Recommandation,
-        rotate: 270,
-        featureIndex: 5
-    },
-    {
-        id: 8,
-        alt: "Beautiful Templates",
-        source: Templating,
-        rotate: 315,
-        featureIndex: 6
-    },
-];
 
 export default function Features() {
     const phoneAnimationRef = useRef<LottieRefCurrentProps>(null);
