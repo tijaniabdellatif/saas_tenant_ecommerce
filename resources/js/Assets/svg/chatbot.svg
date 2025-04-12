@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="45" fill="#3B82F6" />
+  
+  <!-- Chat bubble user -->
+  <path d="M25,35 L25,55 L40,55 L45,60 L45,55 L50,55 L50,35 Z" fill="white" />
+  <circle cx="32" cy="45" r="2" fill="#3B82F6" />
+  <circle cx="38" cy="45" r="2" fill="#3B82F6" />
+  <circle cx="44" cy="45" r="2" fill="#3B82F6" />
+  
+  <!-- Chat bubble AI -->
+  <path d="M75,45 L75,65 L60,65 L55,70 L55,65 L50,65 L50,45 Z" fill="white" />
+  
+  <!-- Robot face in AI bubble -->
+  <rect x="58" y="50" width="14" height="10" rx="2" fill="#3B82F6" />
+  <circle cx="61" cy="53" r="1.5" fill="white" />
+  <circle cx="69" cy="53" r="1.5" fill="white" />
+  <rect x="60" y="57" width="10" height="1" rx="0.5" fill="white" />
+  
+  <!-- Circuit pattern -->
+  <line x1="63" y1="40" x2="63" y2="45" stroke="#F9FAFB" stroke-width="1" />
+  <line x1="67" y1="40" x2="67" y2="45" stroke="#F9FAFB" stroke-width="1" />
+  <line x1="60" y1="40" x2="70" y2="40" stroke="#F9FAFB" stroke-width="1" />
+</svg>

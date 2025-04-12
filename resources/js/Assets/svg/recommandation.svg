@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="45" fill="#F59E0B" />
+  
+  <!-- Star rating -->
+  <path d="M30,40 L33,46 L40,47 L35,52 L36,59 L30,56 L24,59 L25,52 L20,47 L27,46 Z" fill="white" />
+  <path d="M50,40 L53,46 L60,47 L55,52 L56,59 L50,56 L44,59 L45,52 L40,47 L47,46 Z" fill="white" />
+  <path d="M70,40 L73,46 L80,47 L75,52 L76,59 L70,56 L64,59 L65,52 L60,47 L67,46 Z" fill="white" />
+  
+  <!-- Path/flow lines -->
+  <path d="M25,65 C35,75 45,60 55,70 S75,65 80,60" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Products -->
+  <rect x="25" y="25" width="10" height="10" rx="2" fill="#FDE68A" opacity="0.8" />
+  <rect x="45" y="25" width="10" height="10" rx="2" fill="#FDE68A" opacity="0.8" />
+  <rect x="65" y="25" width="10" height="10" rx="2" fill="#FDE68A" opacity="0.8" />
+</svg>

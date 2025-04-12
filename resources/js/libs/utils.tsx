@@ -192,8 +192,22 @@ function formatDateToHuman(dateString: string): string {
     return new Intl.DateTimeFormat('fr-FR', options).format(date);
 }
 
+function shuffleArray<T>(array: T[]): T[] {
+    // Create a copy of the array to avoid mutating the original
+    const shuffled = [...array];
+    
+    // Fisher-Yates shuffle
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    
+    return shuffled;
+}
+
 export {
 
+    shuffleArray,
     timeAgo,
     toRaw,
     randomNumbers,
