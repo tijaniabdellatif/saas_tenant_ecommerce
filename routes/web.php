@@ -24,10 +24,19 @@ Route::middleware(['web','guest'])->group(function () {
         return Inertia::render('Public/Index', [
              'canLogin' => Route::has('login'),
              'canRegister' => Route::has('register'),
-             'laravelVersion' => Application::VERSION,
-             'phpVersion' => PHP_VERSION,
+             'title' => 'Home',
+             'showNavigation' => true
          ]);
      })->name('welcome');
+
+
+     Route::get('/conditions',function(){
+
+        return Inertia::render('Public/Conditions',[
+            'title' => 'conditions',
+            "showNavigation" => false
+        ]);
+     })->name('conditions');
 
    
 });

@@ -11,13 +11,13 @@ export default function ProductShowCase() {
             <SectionContent classes="py-2">
                 <div className="max-w-[540px] mx-auto pricing-head_before relative">
                     <div className="flex justify-center py-4">
-                        <div className="tag text-white  bg-[#D4AF37]">
+                        <div className="text-white tag bg-neutral-800">
                             Manage Your Store
                         </div>
                     </div>
 
                     <h2 className="text-center md:text-[54px] md:leading-[60px] text-color-dark text-3xl font-bold tracking-tighter bg-gradient-to-l from-[#475569] to-[#D4AF37] text-transparent bg-clip-text mt-5">A more effective to track yor products and sales</h2>
-                    <p className="text-[22px] leading-[30px] text-center text-color-dark tracking-tight mt-5">
+                    <p className="text-base lg:text-[22px] leading-[30px] text-center text-color-dark tracking-tight mt-5">
                         Effortlessly turn your store into a fully managed instance, increase your sales and use AI powered Tools. Build your store in just minutes
                         with beautiful templates and interactive dashboard
                     </p>

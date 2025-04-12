@@ -18,22 +18,22 @@ export default function Banner({
   animateIcon = true // Animation is on by default
 }: BannerProps) {
   return (
-    <div className='z-10 fixed w-full flex items-center justify-center gap-3 py-3 text-sm text-white bg-black'>
+    <div className='fixed z-10 flex items-center justify-center w-full gap-3 py-3 text-sm text-white bg-black'>
       <div className='inline-flex items-center gap-1'>
         <p className='hidden text-white/60 md:block'>
          {additionalText}
         </p>
-        <p>{text}</p>
+        <p className='cursor-pointer'>{text}</p>
         {/* Handle both string paths and React components with animation */}
         {typeof icon === 'string' ? (
           <img 
             src={icon} 
             alt="Icon" 
-            className={`inline-flex items-center justify-center w-4 h-4 ${animateIcon ? 'animate-arrow-pulse' : ''}`} 
+            className={`cursor-pointer inline-flex items-center justify-center w-4 h-4 ${animateIcon ? 'animate-arrow-pulse' : ''}`} 
           />
         ) : (
           <span 
-            className={`inline-flex items-center justify-center w-4 h-4 ${animateIcon ? 'animate-arrow-pulse' : ''}`}
+            className={`cursor-pointer inline-flex items-center justify-center w-4 h-4 ${animateIcon ? 'animate-arrow-pulse' : ''}`}
           >
             {icon}
           </span>

@@ -8,7 +8,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import AnimationData from '@/Assets/Lottie_Lego.json';
 import { motion } from 'framer-motion';
-import { sectionFeaturs,featureLogos } from "@/libs/constants";
+import { sectionFeaturs, featureLogos } from "@/libs/constants";
 
 
 
@@ -56,7 +56,7 @@ export default function Features() {
 
         // Add resize listener
         window.addEventListener('resize', updateOrbitSize);
-        
+
         // Cleanup
         return () => window.removeEventListener('resize', updateOrbitSize);
     }, []);
@@ -80,19 +80,18 @@ export default function Features() {
 
     // Calculate orbit sizes proportionally based on container size
     const outerOrbitSize = containerSize;
-    const middleOrbitSize = containerSize * (280/370);
-    const innerOrbitSize = containerSize * (180/370);
-    const centerSize = containerSize * (80/370);
-    const logoSize = containerSize * (64/370);
+    const middleOrbitSize = containerSize * (280 / 370);
+    const innerOrbitSize = containerSize * (180 / 370);
+    const centerSize = containerSize * (80 / 370);
+    const logoSize = containerSize * (64 / 370);
     const orbitRadius = containerSize / 2;
 
     return (
         <section className={cn([
             'py-10 md:py-12',
-            'min-h-screen',
             'bg-gradient-to-b from-[#FFFFFF] to-[#b0b9c626]'
         ])}>
-            
+
             <SectionContent classes="relative flex flex-col md:flex-row justify-between items-center">
                 {/* Left side content */}
                 <div className="relative w-full mb-12 md:w-1/2 md:mb-0 pricing-head_before">
@@ -134,42 +133,49 @@ export default function Features() {
                             ))
                         }
                     </ul>
-                    <LandingButton
-                        text='Try it Now'
-                        buttonClassName='text-white bg-[#E5C04D]'
-                        animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
-                        isTransparent={true}
-                        fullWidthOnMobile={true}
-                    />
+
+                    <div className="flex justify-center w-full lg:justify-start">
+                    
+
+                        <LandingButton
+                            text='Discover more'
+                             buttonClassName='text-white bg-[#D4AF37] mt-5 md:w-[200px] lg:mx-0'
+                            animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
+                            isTransparent={true}
+                            fullWidthOnMobile={true}
+                             marginClassName="lg:ml-0 lg:mr-auto"
+                        />
+                    </div>
+
                 </div>
 
                 {/* Right side - Orbits */}
                 <div ref={orbitContainerRef} className="flex justify-center w-full md:w-1/2 md:pl-4">
-                    <div 
-                        className="relative flex items-center justify-center mx-auto" 
-                        style={{ 
-                            width: `${containerSize}px`, 
+                    <div
+                        className="relative flex items-center justify-center mx-auto"
+                        style={{
+                            width: `${containerSize}px`,
                             height: `${containerSize}px`,
                             maxWidth: '95%'
                         }}
                     >
                         {/* Static orbits */}
-                        <Orbit 
-                            className="absolute border-2 border-gray-300 rounded-full" 
-                            style={{ width: `${outerOrbitSize}px`, height: `${outerOrbitSize}px` }} 
+                        <Orbit
+                            className="absolute border-2 border-gray-300 rounded-full"
+                            style={{ width: `${outerOrbitSize}px`, height: `${outerOrbitSize}px` }}
                         />
-                        <Orbit 
-                            className="absolute border-2 border-gray-300 rounded-full" 
-                            style={{ width: `${middleOrbitSize}px`, height: `${middleOrbitSize}px` }} 
+                        <Orbit
+                            className="absolute border-2 border-gray-300 rounded-full"
+                            style={{ width: `${middleOrbitSize}px`, height: `${middleOrbitSize}px` }}
                         />
-                        <Orbit 
-                            className="absolute border-2 border-gray-300 rounded-full" 
-                            style={{ width: `${innerOrbitSize}px`, height: `${innerOrbitSize}px` }} 
+                        <Orbit
+                            className="absolute border-2 border-gray-300 rounded-full"
+                            style={{ width: `${innerOrbitSize}px`, height: `${innerOrbitSize}px` }}
                         />
 
                         {/* Center logo with Lottie animation */}
-                        <div 
-                            className="absolute z-10 flex items-center justify-center" 
+                        <div
+                            className="absolute z-10 flex items-center justify-center"
                             style={{ width: `${centerSize}px`, height: `${centerSize}px` }}
                         >
                             <Lottie
@@ -197,8 +203,8 @@ export default function Features() {
                         >
                             {/* Individual logos positioned on the outer orbit */}
                             {featureLogos.map((logo) => {
-                                const iconSize = containerSize * (40/370); // Proportional icon size
-                                const logoContainerSize = containerSize * (64/370); // Proportional logo container size
+                                const iconSize = containerSize * (40 / 370); // Proportional icon size
+                                const logoContainerSize = containerSize * (64 / 370); // Proportional logo container size
                                 const isHighlighted = highlightedFeatureIndex === logo.featureIndex;
 
                                 return (
@@ -208,8 +214,8 @@ export default function Features() {
                                         style={{
                                             width: `${logoContainerSize}px`,
                                             height: `${logoContainerSize}px`,
-                                            left: `calc(50% - ${logoContainerSize/2}px)`,
-                                            top: `calc(50% - ${logoContainerSize/2}px)`,
+                                            left: `calc(50% - ${logoContainerSize / 2}px)`,
+                                            top: `calc(50% - ${logoContainerSize / 2}px)`,
                                             transform: `rotate(${logo.rotate}deg) translateX(${orbitRadius}px) rotate(-${logo.rotate}deg)`,
                                             pointerEvents: 'all',
                                             zIndex: isHighlighted ? 5 : 1,

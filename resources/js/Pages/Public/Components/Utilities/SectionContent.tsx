@@ -9,7 +9,7 @@ interface ISectionContent {
 }
 export default function SectionContent({ children, classes }: ISectionContent) {
 
-    return <div className={twMerge('container mt-6', classes)}>
+    return <div className={twMerge('container', classes)}>
         {children}
     </div>
 }

@@ -20,18 +20,27 @@ import GoogleAnalytics from '@/Assets/Images/Logo_Google_Analytics.svg.png';
 import StripePaypal from '@/Assets/Images/stripe.png';
 import FreshDesk from '@/Assets/Images/freshdesk.svg';
 import Canva from '@/Assets/Images/Canva_Logo.svg.png';
-import JudgeMe from '@/Assets/Images/61b809188fc672eb132a70e9_logo - green.png'
-
+import JudgeMe from '@/Assets/Images/61b809188fc672eb132a70e9_logo - green.png';
+import Dashboard from '@/Assets/Images/dashboard.png';
+import Avatar from '@/Assets/Images/avatar.png';
+import FacebookLogo from '@/Assets/Images/facebook.png';
+import TwitterLogo from '@/Assets/Images/twitter.svg';
+import InstagramLogo from '@/Assets/Images/Instagram-Logo.wine.svg';
+import LinkedInLogo from '@/Assets/Images/linkedin.png';
+import YoutubeLogo from '@/Assets/Images/youtube.png';
 export {
 
+    FacebookLogo,TwitterLogo,InstagramLogo,LinkedInLogo,YoutubeLogo,
+    Dashboard,
     ArrowRight,
     ClaudeLogo,
+    Avatar,
     OpenAI,
     DialogFlow,
     ScikitLearn,
     SlackLogo,
     AnthropicLogo,
-    GoogleWorkspace,MailChimp,Meta,GoogleAnalytics,StripePaypal,FreshDesk,Canva,JudgeMe,
+    GoogleWorkspace, MailChimp, Meta, GoogleAnalytics, StripePaypal, FreshDesk, Canva, JudgeMe,
     SEO, Seamless, Analytics, ImageGeneration, ProductDescription, ChatBot, Recommandation, Templating
 
 }

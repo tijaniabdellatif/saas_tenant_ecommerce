@@ -46,10 +46,10 @@ export default function Pricing() {
 
     return (
         <section className="overflow-x-clip bg-gradient-to-b from-[#FFFFFF] to-[#b0b9c626] py-10 md:py-12 font-poppins">
-            <SectionContent>
+            <SectionContent classes="overflow-visible max-w-[1400px] mx-auto">
                 <div className="max-w-[540px] mx-auto pricing-head_before relative">
                     <h2 className="text-center md:text-[54px] py-2 md:leading-[60px] text-color-dark text-3xl font-bold tracking-tighter bg-gradient-to-l from-[#475569] to-[#D4AF37] text-transparent bg-clip-text mt-5">Pricing</h2>
-                    <p className="text-[22px] leading-[30px] text-center text-color-dark tracking-tight mt-5">
+                    <p className="text-base lg:text-[22px] leading-[30px] text-center text-color-dark tracking-tight mt-5">
                         Flexible plan for every need
                     </p>
 
@@ -136,7 +136,7 @@ export default function Pricing() {
                 </div>
                 <div className={cn([
                     'flex flex-col items-center gap-6 mt-10',
-                    "lg:flex-row lg:items-end lg:justify-center"
+                    "lg:flex-row lg:items-end lg:justify-center lg:px-4"
                 ])}>
                     {
                         pricingTiers.map((item) => {
@@ -152,8 +152,12 @@ export default function Pricing() {
                                         'shadow-[0_7px_14px_#EAEAEA]',
                                         'border border-[#F1F1F1]',
                                         'mt-2',
-                                        "max-x-xs w-full",
-                                        inverse && 'border-black bg-black text-white/60'
+                                        // Wider card on mobile/tablet (column layout)
+                                        "w-[90%] sm:w-[85%] md:w-[80%] md:max-w-[700px]",
+                                        // Fixed width for row layout on large screens
+                                        "lg:w-[340px] lg:max-w-[340px] xl:w-[380px] xl:max-w-[380px]", 
+                                        "lg:flex-shrink-0", // Prevent shrinking on large screens
+                                        inverse && 'border-black bg-neutral-800 text-white/60'
                                     ])}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -207,14 +211,18 @@ export default function Pricing() {
                                         </motion.span>
                                     </div>
 
-                                    <LandingButton
-                                        text={buttonText}
-                                        buttonClassName='text-white bg-[#222222]'
-                                        marginClassName="mt-[30px]"
-                                        animationClassName='bg-gradient-to-l from-white to-black'
-                                        styleBorderAnimationClassname="linear-gradient(90deg, #000, white, #000)"
-                                        fullWidthOnMobile
-                                    />
+                                    {/* Button container - centered with 80% width exactly at medium sizes */}
+                                    <div className="mt-[30px] flex justify-center lg:justify-start">
+                                        <div className="w-full sm:w-[80%] md:w-[80%] lg:w-[auto]">
+                                            <LandingButton
+                                                text={buttonText}
+                                                buttonClassName='lg:md:w-[250px] text-white bg-[#222222] w-full sm:w-[350px]'
+                                                animationClassName='bg-gradient-to-l from-white to-black'
+                                                styleBorderAnimationClassname="linear-gradient(90deg, #000, white, #000)"
+                                            />
+                                        </div>
+                                    </div>
+                                    
                                     <ul className="flex flex-col gap-5 mt-8">
                                         {features.map((item, index) => (
                                             <motion.li 
