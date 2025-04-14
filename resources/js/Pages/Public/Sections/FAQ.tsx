@@ -15,26 +15,33 @@ export default function FAQ() {
         const interval = setInterval(() => {
             setIsGlowing(prev => !prev);
         }, 1500);
-        
+
         return () => clearInterval(interval);
     }, []);
 
     return (
         <section className="overflow-x-clip overflow-hidden bg-gradient-to-t from-[#FFFFFF] to-[#b0b9c626] py-10 md:py-12 font-poppins relative">
-            <SectionContent>
-                <div className="max-w-[540px] mx-auto relative">
+            <SectionContent classes="relative pricing-head_before">
+                <div className="max-w-[540px] mx-auto pricing-head_before relative">
                     <div className="flex justify-center py-4">
                         <div className="text-white tag bg-neutral-800">
-                            FAQ
+                           Frequently Asked Questions
                         </div>
                     </div>
-
-                    <h2 className="text-center md:text-[54px] md:leading-[60px] text-color-dark text-3xl font-bold tracking-tighter bg-gradient-to-l from-[#475569] to-[#D4AF37] text-transparent bg-clip-text mt-5">
-                        Questions? we've got <span className="text-neutral-800/50">Answers</span>
-                    </h2>
-                    <p className="text-base lg:text-[22px] pricing-head_before relative leading-[30px] text-center text-color-dark tracking-tight mt-5">
+                    <h2 className={cn([
+                        'text-center',
+                        'text-color-dark bg-gradient-to-l from-[#475569] to-[#D4AF37]',
+                        'text-transparent bg-clip-text',
+                        'text-3xl lg:text-6xl md:text-4xl py-2 font-semibold tracking-tighter'
+                    ])}>Questions? we've got Answers</h2>
+                    <p className={cn([
+                        'text-center mt-4 text-base leading-7 tracking-tight',
+                        "md:text-[18px] md:text-center md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
+                    ])}>
                         Curiosity didn't kill a man, it gives answers
+
                     </p>
+
                 </div>
 
                 {/* Centered FAQ items container */}
@@ -46,16 +53,16 @@ export default function FAQ() {
                                 'shadow-[0_7px_14px_#EAEAEA]',
                                 'border border-neutral-800/10',
                                 'rounded-2xl p-6',
-                                'w-full max-w-[800px]', 
+                                'w-full max-w-[800px]',
                                 'mx-auto',
                                 'mb-3'
                             ])}
                         >
-                            <div className="relative z-40 flex items-center justify-between cursor-pointer" onClick={() => setSelectedIndex(index)}>
+                            <div className="relative z-30 flex items-center justify-between cursor-pointer" onClick={() => setSelectedIndex(index)}>
                                 <div className="flex items-center justify-start gap-3">
                                     {/* Glowing circle with CSS animations instead of Framer Motion */}
                                     <div className="relative flex-shrink-0">
-                                        <div 
+                                        <div
                                             className={cn([
                                                 "w-5 h-5 rounded-full bg-neutral-500/6",
                                                 "transition-all duration-1000 ease-in-out",

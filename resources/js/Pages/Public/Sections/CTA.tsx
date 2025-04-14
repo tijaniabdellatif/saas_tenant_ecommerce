@@ -2,6 +2,7 @@ import SectionContent from "../Components/Utilities/SectionContent";
 import FooterBanner from "../Components/Utilities/FooterBanner";
 import FooterItems from "../Components/Utilities/FooterItems";
 import CTAItems from "../Components/Utilities/CTAItems";
+import { cn } from "@/libs/utils";
 
 interface IShowItem {
 
@@ -12,9 +13,12 @@ export default function CTA({showItems}:IShowItem) {
 
   return (
     <>
-      <section className="overflow-x-clip text-[#2A2A2A]  pt-16 pb-0 font-poppins relative">
+      <section className="overflow-x-clip text-[#2A2A2A]  mt-20 pb-0 font-poppins relative">
         {/* Gradient background */}
-        <div className="absolute pricing-head_before inset-0 bg-gradient-to-b from-[#FFFFFF] to-[#D4AF37989] h-[50%] w-full">
+        <div className={cn([
+          'absolute inset-0 bg-gradient-to-b from-[#FFFFFF] to-[#D4AF37989] h-[50%] w-full',
+          showItems && 'pricing-head_before'
+        ])}>
 
         </div>
         <SectionContent classes="relative">

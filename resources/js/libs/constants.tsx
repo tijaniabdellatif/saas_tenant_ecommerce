@@ -274,8 +274,12 @@ export const faqItems = [
     question: "How does enimsay work?",
     answer: 'Unlike traditional stores, enimsay is using AI powered tools to boost your store management',
   },
-  
+
 ];
+
+
+
+
 
 export const staticTermsData = [
   {
@@ -333,6 +337,98 @@ export const staticTermsData = [
         is_active: true
       }
     ]
+  },
+  {
+    id: 4,
+    slug: "intellectual-property",
+    title: "Intellectual Property Rights",
+    content: `<p class="text-gray-700 mb-4">The content on our platform, including text, graphics, logos, and software, is owned by us or our licensors and is protected by copyright, trademark, and other intellectual property laws.</p><p class="text-gray-700 mb-4">You may not use, reproduce, distribute, or create derivative works from our content without our express permission.</p>`,
+    order_index: 3,
+    is_active: true,
+    subsections: [
+      {
+        id: 4,
+        section_id: 4,
+        slug: "user-content",
+        title: "User Generated Content",
+        content: `<p class="text-gray-700 mb-4">By posting content on our platform, you grant us a non-exclusive, royalty-free, worldwide license to use, modify, publicly display, and distribute that content on our platform.</p><p class="text-gray-700 mb-4">You represent and warrant that you own or have the necessary rights to the content you post, and that your content does not infringe upon any third-party rights.</p>`,
+        order_index: 0,
+        is_active: true
+      },
+      {
+        id: 5,
+        section_id: 4,
+        slug: "dmca",
+        title: "DMCA Compliance",
+        content: `<p class="text-gray-700 mb-4">We respect the intellectual property rights of others and expect our users to do the same. If you believe that your work has been copied in a way that constitutes copyright infringement, please provide us with the following information:</p><ul class="list-disc pl-5 my-4 text-gray-700"><li class="mb-2">A physical or electronic signature of the copyright owner</li><li class="mb-2">Identification of the copyrighted work claimed to have been infringed</li><li class="mb-2">Identification of the material that is claimed to be infringing</li><li class="mb-2">Your contact information</li><li class="mb-2">A statement that you have a good faith belief that use of the material is not authorized by the copyright owner</li></ul>`,
+        order_index: 1,
+        is_active: true
+      }
+    ]
+  },
+  {
+    id: 5,
+    slug: "privacy-data",
+    title: "Privacy and Data Protection",
+    content: `<p class="text-gray-700 mb-4">We collect and process information about you in accordance with our Privacy Policy. By using our services, you consent to such processing and you warrant that all data provided by you is accurate.</p><p class="text-gray-700 mb-4">We take reasonable measures to protect your personal information, but we cannot guarantee its absolute security.</p>`,
+    order_index: 4,
+    is_active: true,
+    subsections: [
+      {
+        id: 6,
+        section_id: 5,
+        slug: "data-collection",
+        title: "Data Collection and Usage",
+        content: `<p class="text-gray-700 mb-4">We collect various types of information, including information you provide to us, information we collect automatically, and information from third-party sources.</p><p class="text-gray-700 mb-4">We use this information to provide and improve our services, communicate with you, and for other purposes as described in our Privacy Policy.</p>`,
+        order_index: 0,
+        is_active: true
+      }
+    ]
+  },
+  {
+    id: 6,
+    slug: "limitation-liability",
+    title: "Limitation of Liability",
+    content: `<p class="text-gray-700 mb-4">To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.</p><p class="text-gray-700 mb-4">Our liability is limited to the amount you paid for the service in question, or $100, whichever is greater.</p>`,
+    order_index: 5,
+    is_active: true,
+    subsections: []
+  },
+  {
+    id: 7,
+    slug: "term-termination",
+    title: "Term and Termination",
+    content: `<p class="text-gray-700 mb-4">These Terms will remain in effect until terminated by you or us. You may terminate these Terms by closing your account and discontinuing use of our services.</p><p class="text-gray-700 mb-4">We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason, including breach of these Terms.</p>`,
+    order_index: 6,
+    is_active: true,
+    subsections: []
+  },
+  {
+    id: 8,
+    slug: "governing-law",
+    title: "Governing Law",
+    content: `<p class="text-gray-700 mb-4">These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which we are headquartered, without regard to its conflict of law provisions.</p><p class="text-gray-700 mb-4">Any dispute arising out of or relating to these Terms shall be subject to the exclusive jurisdiction of the courts in our jurisdiction.</p>`,
+    order_index: 7,
+    is_active: true,
+    subsections: []
+  },
+  {
+    id: 9,
+    slug: "changes-terms",
+    title: "Changes to Terms",
+    content: `<p class="text-gray-700 mb-4">We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p><p class="text-gray-700 mb-4">Your continued use of our service after such changes constitutes your acceptance of the new Terms.</p>`,
+    order_index: 8,
+    is_active: true,
+    subsections: []
+  },
+  {
+    id: 10,
+    slug: "contact-us",
+    title: "Contact Us",
+    content: `<p class="text-gray-700 mb-4">If you have any questions about these Terms, please contact us at support@example.com.</p><p class="text-gray-700 mb-4">We are committed to addressing any concerns you may have and will do our best to resolve any issues in a timely manner.</p>`,
+    order_index: 9,
+    is_active: true,
+    subsections: []
   }
 ];
 

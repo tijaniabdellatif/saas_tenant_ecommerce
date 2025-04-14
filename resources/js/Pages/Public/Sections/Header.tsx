@@ -8,6 +8,7 @@ import LandingButton from '../Components/Utilities/LandingButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeaderProps } from '@/types';
 import Navigation from '../Components/Navigation';
+import { cn } from '@/libs/utils';
 
 export default function Header({ showNavigation = true, currentRoute = "/" }: HeaderProps) {
     const phoneAnimationRef = useRef<LottieRefCurrentProps>(null);
@@ -65,9 +66,14 @@ export default function Header({ showNavigation = true, currentRoute = "/" }: He
     };
 
     return (
-        <header className='fixed top-0 z-50 w-full'>
+        <header className='fixed top-0 z-40 w-full'>
             <Banner text='Get Started for Free' additionalText='Launch Your Store Today' />
-            <div className={`relative mt-10 py-4 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]' : ''}`}>
+            <div className={cn([
+
+                'relative mt-10 py-4 transition-all duration-300',
+                isScrolled ? 'backdrop-blur-md shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]' : "",
+
+            ])}>
                 <div className='px-4 mx-auto max-w-7xl md:px-6 lg:px-8'>
                     <div className='flex items-center justify-between'>
                         {/* Logo container - Left side */}

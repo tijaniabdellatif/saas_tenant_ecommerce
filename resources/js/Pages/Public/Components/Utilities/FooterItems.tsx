@@ -2,11 +2,12 @@ import {motion} from 'framer-motion';
 import AnimationData from '@/Assets/Lottie_Lego.json';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import { useRef } from 'react';
+import { cn } from '@/libs/utils';
 
 export default function FooterItems(){
     const phoneAnimationRef = useRef<LottieRefCurrentProps>(null);
     return(
-        <div className="grid grid-cols-1 gap-10 mt-16 mb-16 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 mt-2 lg:mt-12 md:mt-5 mb-16 md:grid-cols-4">
               {/* Logo and About Column */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -26,10 +27,13 @@ export default function FooterItems(){
                     className='object-contain w-full h-full'
                   />
                 </div>
-                <p className="mb-4 text-neutral-600">
+                <p className={cn([
+                   'text-left mt-2 mb-2 text-base leading-7 tracking-tight',
+                     "md:text-md md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
+                ])}>
                   Everything you need to start selling online in one place.
                 </p>
-                <p className="text-neutral-600">
+                <p className="tag text-neutral-600">
                   Version 2.0 is here
                 </p>
               </motion.div>
@@ -56,7 +60,7 @@ export default function FooterItems(){
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + colIndex * 0.2 }}
                 >
-                  <h3 className="mb-6 font-semibold text-neutral-800">
+                  <h3 className="mb-6 font-semibold text-neutral-800 text-sm md:text-1xl lg:text-lg">
                     {column.title}
                   </h3>
                   <nav>
@@ -68,7 +72,7 @@ export default function FooterItems(){
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.5 + linkIndex * 0.05 + colIndex * 0.2 }}
                         >
-                          <a href="#" className="text-neutral-600 hover:text-[#D4AF37] transition">
+                          <a href="#" className="text-neutral-600 hover:text-[#D4AF37] transition text-sm">
                             {link}
                           </a>
                         </motion.li>

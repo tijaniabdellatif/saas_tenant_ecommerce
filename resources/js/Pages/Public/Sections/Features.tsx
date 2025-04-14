@@ -18,7 +18,7 @@ export default function Features() {
     const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [autoHighlightIndex, setAutoHighlightIndex] = useState(0);
     const orbitContainerRef = useRef<HTMLDivElement>(null);
-    const [containerSize, setContainerSize] = useState(370);
+    const [containerSize, setContainerSize] = useState(500);
 
     // Detect touch device on component mount
     useEffect(() => {
@@ -88,29 +88,39 @@ export default function Features() {
 
     return (
         <section className={cn([
-            'py-10 md:py-12',
+            'pt-4 md:pt-6 lg:pt-10',
             'bg-gradient-to-b from-[#FFFFFF] to-[#b0b9c626]'
         ])}>
 
-            <SectionContent classes="relative flex flex-col md:flex-row justify-between items-center">
+            <SectionContent classes={cn([
+
+                "relative gap-10",
+                //Mobile breakpoints
+                "flex flex-col",
+                //Tablette breakpoints
+                'md:flex-col md:justify-center md:items-center',
+                //large breakpoints
+                "lg:flex-row lg:items-center justify-between items-center"
+            ])}  >
                 {/* Left side content */}
-                <div className="relative w-full mb-12 md:w-1/2 md:mb-0 pricing-head_before">
+                <div className="relative w-full mb-10 md:mb-0 pricing-head_before">
                     <h2 className={cn([
-                        'text-xl md:text-3xl font-semibold tracking-tighter',
+                        'text-2xl text-center lg:text-left  md:text-2xl font-semibold tracking-tighter',
                         'font-poppins',
                         "w-full",
+                        "ml-2",
                         'bg-gradient-to-l from-[#475569] to-[#D4AF37] text-transparent bg-clip-text',
                     ])}>Your store is Managed by AI-empowered tools</h2>
-                    <ul className="flex flex-col gap-8 mt-10 mb-4">
+                    <ul className="flex flex-col gap-8 mt-6">
                         {
                             sectionFeaturs.map((item, index) => (
                                 <motion.li
                                     key={item}
                                     className={cn([
-                                        "flex items-center gap-2 transition-all duration-300",
+                                        "flex items-center md:ml-2 gap-2 transition-all duration-300",
                                         // Add a highlight effect when the corresponding logo is active
                                         highlightedFeatureIndex === index
-                                            ? "scale-105 bg-amber-50 p-2 rounded-md -ml-2 shadow-sm"
+                                            ? "scale-100 bg-amber-100/80 p-3 rounded-lg -ml-2 shadow-sm"
                                             : ""
                                     ])}
                                     onClick={() => setActiveFeatureIndex(index)} // For touch devices
@@ -124,8 +134,8 @@ export default function Features() {
                                         icon={faCircleCheck}
                                     />
                                     <span className={cn([
-                                        "font-medium text-md transition-colors duration-300",
-                                        highlightedFeatureIndex === index ? "text-black" : "text-slate-500"
+                                        "font-medium text-sm md:text-md lg:text-[1.2rem] transition-colors duration-300",
+                                        highlightedFeatureIndex === index ? "text-[#475569]" : "text-slate-500"
                                     ])}>
                                         {item}
                                     </span>
@@ -134,23 +144,22 @@ export default function Features() {
                         }
                     </ul>
 
-                    <div className="flex justify-center w-full lg:justify-start">
+                    <div className="relative flex items-center justify-center ml-2 lg:justify-start">
                     
 
                         <LandingButton
                             text='Discover more'
-                             buttonClassName='text-white bg-[#D4AF37] mt-5 md:w-[200px] lg:mx-0'
+                            buttonClassName='text-white bg-[#D4AF37] w-[300px] md:w-[300px] max-w-[250px]'
                             animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
                             isTransparent={true}
-                            fullWidthOnMobile={true}
-                             marginClassName="lg:ml-0 lg:mr-auto"
+                            marginClassName="mt-10"
                         />
                     </div>
 
                 </div>
 
                 {/* Right side - Orbits */}
-                <div ref={orbitContainerRef} className="flex justify-center w-full md:w-1/2 md:pl-4">
+                <div ref={orbitContainerRef} className="flex justify-center w-full md:w-1/2">
                     <div
                         className="relative flex items-center justify-center mx-auto"
                         style={{

@@ -21,8 +21,9 @@ export default function Welcome({ currentRoute,showNavigation }: PageProps<{ lar
 
             <PublicLayout>
                 <Header currentRoute={currentRoute} showNavigation={showNavigation} />
-                <Hero isVisible={showNavigation} tagVisible={showNavigation} title='Amzingly Simple' description={`
-                        Lorem ipsum dolor
+                <Hero isVisible={showNavigation} tagVisible={showNavigation} title='Amazingly Simple' description={`
+                        Launch your online store in minutes with our all-in-one eCommerce SaaS platform, supercharged with AI-powered tools,our platform empowers you to build, manage, and grow your store effortlessly. 
+                        No tech skills needed—just your vision.
                 `} />
                 <FeatureTicker />
                 <Features />

@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@inertiajs/react";
 import LandingButton from "./Utilities/LandingButton";
-import { useState, useRef, RefObject } from "react";
 import { NavigationProps } from "@/types";
 
 
@@ -15,10 +14,6 @@ export default function Navigation({
     setIsLangMenuOpen,
 
 }: NavigationProps) {
-
-
-
-
     return (
         <div className='hidden lg:flex lg:items-center lg:w-full lg:justify-between'>
             {/* Navigation links - Center */}

@@ -1,19 +1,12 @@
 import PublicLayout from "@/Layouts/Public/PublicLayout";
-import { Head, usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import Header from "./Sections/Header";
 import Footer from "./Sections/Footer";
 import { PageProps } from "@/types";
 import CTA from "./Sections/CTA";
-import { cn } from "@/libs/utils";
-import SectionContent from "./Components/Utilities/SectionContent";
-
-import LandingButton from "./Components/Utilities/LandingButton";
 import TermsSection from "./Sections/TermsSection";
 import Hero from "./Sections/Hero";
 export default function Conditions({ currentRoute, showNavigation }: PageProps) {
-
-
-
     return (
 
         <>
@@ -29,7 +22,6 @@ export default function Conditions({ currentRoute, showNavigation }: PageProps) 
                 <TermsSection />
                 <CTA showItems={showNavigation!} />
                 <Footer />
-
             </PublicLayout>
         </>
     );

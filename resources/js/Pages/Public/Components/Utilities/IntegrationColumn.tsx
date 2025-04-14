@@ -128,13 +128,7 @@ export default function IntegrationColumn(props: { integrations: IntegrationType
                                         onMouseEnter={() => setIsPaused(true)}
                                         onMouseLeave={() => setIsPaused(false)}
                                     >
-                                        {/* Animated border wrapper */}
-                                        {/* <motion.div
-                                            className="absolute inset-0 z-0 rounded-3xl"
-                                            variants={rotatingBorderAnimation}
-                                            animate={controls}
-                                            initial="animate"
-                                        /> */}
+                                      
 
                                         {/* Content */}
                                         <motion.div
@@ -153,7 +147,7 @@ export default function IntegrationColumn(props: { integrations: IntegrationType
                                                 <img src={icon} alt={name} className="w-32 h-30" />
                                             </div>
                                             <h3 className="mt-4 text-3xl font-semibold text-center text-[#D4AF37]/40 transition-colors duration-300 group-hover:text-[#D4AF37]/80">{name}</h3>
-                                            <p className="mt-2 text-sm text-center md:text-md lg:text-base lg:text-start text-color-dark">{description}</p>
+                                            <p className="mt-2 text-base leading-6 tracking-tight text-center md:text-md lg:text-base lg:text-start text-color-dark">{description}</p>
 
                                             {/* Feedback ripple effect for touch */}
                                             {isTouchDevice && (

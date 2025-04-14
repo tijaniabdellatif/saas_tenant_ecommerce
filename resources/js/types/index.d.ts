@@ -1,4 +1,4 @@
-import { Config } from 'ziggy-js';
+import { Config } from "ziggy-js";
 
 export interface User {
     id: number;
@@ -18,7 +18,9 @@ export interface SharedProps {
 }
 
 // Generic page props with type parameter for page-specific props
-export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & SharedProps;
+export type PageProps<
+    T extends Record<string, unknown> = Record<string, unknown>,
+> = T & SharedProps;
 
 // Props specifically for the Header component
 export interface HeaderProps {
@@ -35,3 +37,29 @@ export interface NavigationProps {
     handleLanguageChange: (language: string) => void;
     setIsLangMenuOpen: (isOpen: boolean) => void;
 }
+
+export interface DocumentSubSection {
+    id: number;
+    section_id: number;
+    slug: string;
+    title: string;
+    content: string;
+    order_index: number;
+    is_active: boolean;
+}
+
+export interface DocumentSection {
+    id: number;
+    slug: string;
+    title: string;
+    content: string;
+    order_index: number;
+    is_active: boolean;
+    subsections: DocumentSubSection[];
+}
+
+export interface SectionRefs {
+    [key: string]: React.RefObject<HTMLDivElement>;
+}
+
+export type ViewPortState = "mobile" | "tablet" | "desktop";

@@ -21,13 +21,14 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
     return (
         <section className={cn([
             'relative bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#D4AF37,#EAEEFE_80%)]',
-            "md:pt-5 md:pb-10 pt-8 pb-20 overflow-x-clip"
+            'mt-10 pt-10 pb-10 md:mt-4 md:pt-4 md:pb-4 lg:mt-4 lg:pt-4 lg:pb-4',
+            !isVisible && 'lg:mt-10 lg:pt-10 lg:pb-10',
+            "overflow-x-clip"
         ])}>
-            <div className='container'>
+             <div className='container'>
 
                 <div className={cn([
-                    'md:flex justify-center items-center',
-                    "mt-12"
+                    'md:flex  justify-center items-center',
                 ])}>
 
                     <div className={cn([
@@ -35,39 +36,60 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
                         'md:w-[60%]',
                         'lg:mt-[5rem]',
                         !isVisible && 'flex flex-col items-center justify-center',
-
-
                     ])}>
 
-                        <h1 className={cn([
-                            'text-5xl lg:text-7xl  md:text-5xl font-bold tracking-tighter',
-                            'font-poppins',
-                            "py-2 px- mt-3 lg:mt-10",
-                            'bg-gradient-to-l from-[#D4AF37] to-[#000]  text-transparent bg-clip-text',
-                            !isVisible   && "text-center"
-                        ])}>{title}</h1>
-
-                        <p className={cn([
-                           !isVisible && 'text-center',
-                           "mt-6 text-base leading-8 tracking-tight  md:text-[18px] md:leading-8 lg:text-2xl lg:leading-10 text-color-dark font-poppins"
-                        ])} >
-                           {description}
-                        </p>
                         {
-                            isVisible && (<div className="flex gap-1 items-center mt-[30px]">
+                            isVisible ? (
+                                <h1 className={cn([
+                                    'text-3xl lg:text-6xl md:text-4xl font-bold tracking-tighter',
+                                    'font-poppins',
+                                    "lg:py-4 md:py-4",
+                                    'bg-gradient-to-l from-[#D4AF37] to-[#000] text-transparent bg-clip-text',
+                                    "text-center lg:text-left md:text-left"
+                                ])}>{title}</h1>
+                            ):(
+                                <h1 className={cn([
+                                    'text-3xl lg:text-6xl md:text-5xl font-bold tracking-tighter',
+                                    'font-poppins',
+                                    "lg:py-4 md:py-4",
+                                    'bg-gradient-to-l from-[#D4AF37] to-[#000]  text-transparent bg-clip-text',
+                                    !isVisible && "text-center"
+                                ])}>{title}</h1>
+                            )
+                        }
+
+                            {
+
+                                isVisible ? (
+                                    <p className={cn([
+                                        'text-center mt-5 text-base leading-7 tracking-tight',
+                                        "md:text-[18px] md:text-left md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
+                                     ])} >
+                                        {description}
+                                     </p>
+                                ):(
+
+                                    <p className={cn([
+                                        !isVisible && 'text-center',
+                                        "mt-6 text-base leading-8 tracking-tight  md:text-[18px] md:leading-8 lg:text-2xl lg:leading-10 text-color-dark font-poppins"
+                                     ])} >
+                                        {description}
+                                     </p>
+                                )
+                            }
+                        {
+                            isVisible && (<div className="flex flex-col items-center justify-center gap-2 mt-6 md:flex-row md:justify-start">
                                 <LandingButton
                                     text='Get Started'
-                                    buttonClassName='text-white bg-[#D4AF37]'
+                                    buttonClassName='text-white bg-[#D4AF37] w-[300px] md:w-[150px]  max-w-[250px]'
                                     styleBorderAnimationClassname="linear-gradient(90deg, #D4AF37, white, #D4AF37)"
                                     animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
-                                    isTransparent={true}
-
-
+                                
                                 />
 
                                 <LandingButton
                                     text='Learn More'
-                                    buttonClassName='text-white bg-neutral-800'
+                                    buttonClassName='text-white bg-neutral-800 w-[300px] md:w-[150px] max-w-[250px]'
                                     animationClassName='bg-gradient-to-l from-white to-black'
                                     isTransparent={true}
                                     styleBorderAnimationClassname="linear-gradient(90deg, #000, white, #000)"

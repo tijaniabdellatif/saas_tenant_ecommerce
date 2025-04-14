@@ -356,6 +356,37 @@ Light slate for hover states: #94A3B8 */
 }
 
 @layer components {
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  }
+  
+  .prose-xs {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .prose-xs p {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  }
+  
+  .prose-xs ul {
+    margin-top: 0.65em;
+    margin-bottom: 0.65em;
+  }
+  
+  .prose-xs li {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+  
+  .prose-xs h4 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 0.875rem;
+  }
 
   .animate-border-flow {
     position: relative;

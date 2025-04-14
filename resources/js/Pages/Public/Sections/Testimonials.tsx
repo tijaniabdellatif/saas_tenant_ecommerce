@@ -12,25 +12,31 @@ export default function Testimonials() {
   return (
     <section className="overflow-x-clip overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#b0b9c626] py-10 md:py-12 pb-20 font-poppins">
       <SectionContent classes="relative pricing-head_before">
-        <div className="max-w-[540px] mx-auto relative">
+        <div className="max-w-[540px] mx-auto pricing-head_before relative">
           <div className="flex justify-center py-4">
             <div className="text-white tag bg-neutral-800">
-              Testimonials
+              Manage Your Store
             </div>
           </div>
-          
-          <h2 className="text-center md:text-[54px] md:leading-[60px] text-color-dark text-3xl font-bold tracking-tighter bg-gradient-to-l from-[#475569] to-[#D4AF37] text-transparent bg-clip-text mt-5">
-            What our users say
-          </h2>
-          <p className="text-base lg:text-[22px] pricing-head_before relative leading-[30px] text-center text-color-dark tracking-tight mt-5">
+          <h2 className={cn([
+            'text-center',
+            'text-color-dark bg-gradient-to-l from-[#475569] to-[#D4AF37]',
+            'text-transparent bg-clip-text',
+            'text-3xl lg:text-6xl md:text-4xl py-2 font-semibold tracking-tighter'
+          ])}>What our users say</h2>
+          <p className={cn([
+            'text-center mt-4 text-base leading-7 tracking-tight',
+            "md:text-[18px] md:text-center md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
+          ])}>
             Join thousands of entrepreneurs who have
             launched their online stores with ease.
             From seamless integrations to powerful AI tools
+
           </p>
 
 
 
-        
+
         </div>
 
         <div className={cn([
@@ -41,7 +47,7 @@ export default function Testimonials() {
         ])}>
           <TestimonialColumn testimonials={firstColumn} duration={15} />
           <TestimonialColumn testimonials={secondColumn} duration={19} className="hidden md:block" />
-          <TestimonialColumn testimonials={thirdColumn} duration={17} className="hidden lg:block"/>
+          <TestimonialColumn testimonials={thirdColumn} duration={17} className="hidden lg:block" />
         </div>
       </SectionContent>
     </section>
