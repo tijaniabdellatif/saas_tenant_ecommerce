@@ -103,14 +103,14 @@ export default function Navigation({
 
                 <LandingButton
                     text='Get Started'
-                    buttonClassName='text-white bg-p2'
+                    buttonClassName='text-white bg-[#D4AF37]'
                     animationClassName='bg-gradient-to-r from-amber-500 to-slate-700'
                 />
 
                 {/* Login Button (Transparent) */}
                 <LandingButton
                     text='Login'
-                    buttonClassName='text-white bg-p2 w-[100px]'
+                    buttonClassName='text-white bg-[#D4AF37] w-[100px]'
                     animationClassName='bg-gradient-to-r from-amber-500 to-slate-700'
                     isTransparent={true}
 

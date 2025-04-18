@@ -13,8 +13,13 @@ import Testimonials from './Sections/Testimonials';
 import CTA from './Sections/CTA';
 import FAQ from './Sections/FAQ';
 import Footer from './Sections/Footer';
+import { useEffect } from 'react';
 
 export default function Welcome({ currentRoute,showNavigation }: PageProps<{ laravelVersion: string, phpVersion: string }>) {
+   
+    
+    
+    
     return (
         <>
             <Head title="Enimsay" />

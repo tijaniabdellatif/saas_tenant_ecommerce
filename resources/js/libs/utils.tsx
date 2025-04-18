@@ -195,18 +195,47 @@ function formatDateToHuman(dateString: string): string {
 function shuffleArray<T>(array: T[]): T[] {
     // Create a copy of the array to avoid mutating the original
     const shuffled = [...array];
-    
+
     // Fisher-Yates shuffle
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    
+
     return shuffled;
+}
+
+
+function useBack() {
+    const goBack = (fallback = '/') => {
+
+        const current = window.location.pathname;
+
+        const storred = localStorage.getItem(`backFrom_${current}`);
+
+        if (storred) {
+            localStorage.removeItem(`backFrom_${current}`);
+            window.location.href = storred;
+        }
+
+        else {
+
+            if (window.history.length > 1) {
+
+                window.history.back();
+            } else {
+
+                window.location.href = fallback;
+            }
+        }
+    }
+
+    return { goBack }
 }
 
 export {
 
+    useBack,
     shuffleArray,
     timeAgo,
     toRaw,

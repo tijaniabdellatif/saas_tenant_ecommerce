@@ -4,6 +4,7 @@ import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import { useRef } from "react";
 import HeroAnimation from '@/Assets/hero.json';
 import CubeAnimation from '@/Assets/cube.json';
+import { useTransition } from "@/Hooks/global/useTransition";
 
 interface IHero {
 
@@ -17,6 +18,14 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
 
     const currentAnimation = useRef<LottieRefCurrentProps>(null);
     const cubeAnimation = useRef<LottieRefCurrentProps>(null);
+    const { navigateWithTransition } = useTransition();
+
+    const handleClickButton = () => {
+        const currentPage = window.location.href;
+        navigateWithTransition('/enimsay-product', {
+            data: { referrer: currentPage }
+        });
+    }
 
     return (
         <section className={cn([
@@ -25,7 +34,7 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
             !isVisible && 'lg:mt-10 lg:pt-10 lg:pb-10',
             "overflow-x-clip"
         ])}>
-             <div className='container'>
+            <div className='container'>
 
                 <div className={cn([
                     'md:flex  justify-center items-center',
@@ -47,7 +56,7 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
                                     'bg-gradient-to-l from-[#D4AF37] to-[#000] text-transparent bg-clip-text',
                                     "text-center lg:text-left md:text-left"
                                 ])}>{title}</h1>
-                            ):(
+                            ) : (
                                 <h1 className={cn([
                                     'text-3xl lg:text-6xl md:text-5xl font-bold tracking-tighter',
                                     'font-poppins',
@@ -58,25 +67,25 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
                             )
                         }
 
-                            {
+                        {
 
-                                isVisible ? (
-                                    <p className={cn([
-                                        'text-center mt-5 text-base leading-7 tracking-tight',
-                                        "md:text-[18px] md:text-left md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
-                                     ])} >
-                                        {description}
-                                     </p>
-                                ):(
+                            isVisible ? (
+                                <p className={cn([
+                                    'text-center mt-5 text-base leading-7 tracking-tight',
+                                    "md:text-[18px] md:text-left md:leading-8 lg:text-1xl lg:leading-10 text-color-dark font-poppins"
+                                ])} >
+                                    {description}
+                                </p>
+                            ) : (
 
-                                    <p className={cn([
-                                        !isVisible && 'text-center',
-                                        "mt-6 text-base leading-8 tracking-tight  md:text-[18px] md:leading-8 lg:text-2xl lg:leading-10 text-color-dark font-poppins"
-                                     ])} >
-                                        {description}
-                                     </p>
-                                )
-                            }
+                                <p className={cn([
+                                    !isVisible && 'text-center',
+                                    "mt-6 text-base leading-8 tracking-tight  md:text-[18px] md:leading-8 lg:text-2xl lg:leading-10 text-color-dark font-poppins"
+                                ])} >
+                                    {description}
+                                </p>
+                            )
+                        }
                         {
                             isVisible && (<div className="flex flex-col items-center justify-center gap-2 mt-6 md:flex-row md:justify-start">
                                 <LandingButton
@@ -84,7 +93,7 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
                                     buttonClassName='text-white bg-[#D4AF37] w-[300px] md:w-[150px]  max-w-[250px]'
                                     styleBorderAnimationClassname="linear-gradient(90deg, #D4AF37, white, #D4AF37)"
                                     animationClassName='bg-gradient-to-r from-[#D4AF37] to-slate-200'
-                                
+
                                 />
 
                                 <LandingButton
@@ -93,6 +102,7 @@ export default function Hero({ isVisible, title, description, tagVisible }: IHer
                                     animationClassName='bg-gradient-to-l from-white to-black'
                                     isTransparent={true}
                                     styleBorderAnimationClassname="linear-gradient(90deg, #000, white, #000)"
+                                    onClick={handleClickButton}
                                 />
                             </div>)
                         }

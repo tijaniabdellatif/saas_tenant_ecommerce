@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Public\TransitionController;
 use App\Http\Controllers\Tenant\TenantController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,27 +18,38 @@ use Inertia\Inertia;
 */
 
 
-Route::middleware(['web','guest'])->group(function () {
-    
+Route::middleware(['web', 'guest'])->group(function () {
+
+
+    Route::get('/transition', [TransitionController::class, 'show'])->name('transition');
+
     Route::get('/', function () {
         return Inertia::render('Public/Index', [
-             'canLogin' => Route::has('login'),
-             'canRegister' => Route::has('register'),
-             'title' => 'Home',
-             'showNavigation' => true
-         ]);
-     })->name('welcome');
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'title' => 'Home',
+            'showNavigation' => true
+        ]);
+    })->name('welcome');
 
 
-     Route::get('/conditions',function(){
+    Route::get('/conditions', function () {
 
-        return Inertia::render('Public/Conditions',[
+        return Inertia::render('Public/Conditions', [
             'title' => 'conditions',
             "showNavigation" => false
         ]);
-     })->name('conditions');
+    })->name('conditions');
 
-   
+
+    Route::get('/enimsay-product', function () {
+
+        return Inertia::render('Public/LearnMore', [
+
+            'title' => 'Enimsay product',
+            'showNavigation' => false
+        ]);
+    })->name('enimsay-product');
 });
 
 
@@ -55,4 +66,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('tenants', TenantController::class);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

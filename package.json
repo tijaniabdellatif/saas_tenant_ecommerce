@@ -40,6 +40,7 @@
         "@lottiefiles/dotlottie-react": "^0.13.3",
         "framer-motion": "^12.6.3",
         "lottie-react": "^2.4.1",
+        "lucide-react": "^0.494.0",
         "prettier": "^3.5.3",
         "react-scroll": "^1.9.3"
     }
